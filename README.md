@@ -223,6 +223,174 @@ target/site/jacoco/index.html
 
 ---
 
+# Executando os Testes
+
+## Testes Unitários
+
+Os testes unitários utilizam:
+
+- JUnit 5
+- Mockito
+
+Classes testadas:
+
+- ContaService
+
+Para executar pelo IntelliJ:
+
+1. Abrir a classe:
+
+```text
+ContaServiceTest
+```
+
+2. Clicar com o botão direito na classe.
+
+3. Selecionar:
+
+```text
+Run 'ContaServiceTest'
+```
+
+Resultado esperado:
+
+```text
+5 tests passed
+```
+
+---
+
+## Teste de Interface (Selenium)
+
+Antes de executar o Selenium:
+
+1. Inicie a aplicação Spring Boot.
+
+Executar:
+
+```text
+CarteiraDigitalApplication
+```
+
+2. Verifique se a página abre:
+
+```text
+http://localhost:8080/deposito.html
+```
+
+3. Execute a classe:
+
+```text
+DepositaHtmlSeleniumTest
+```
+
+Fluxo automatizado:
+
+- Abre o Chrome
+- Acessa a página de depósito
+- Digita o valor 100
+- Clica no botão Depositar
+- Valida a mensagem:
+
+```text
+Depósito realizado com sucesso
+```
+
+---
+
+## Executar Todos os Testes com Maven
+
+No terminal:
+
+```bash
+mvn test
+```
+
+ou pelo IntelliJ:
+
+```text
+Maven
+→ Lifecycle
+→ test
+```
+
+---
+
+# Gerar Relatório JaCoCo
+
+Após executar os testes:
+
+```text
+Maven
+→ Lifecycle
+→ test
+```
+
+O relatório será gerado em:
+
+```text
+target/site/jacoco/index.html
+```
+
+Para visualizar:
+
+1. Abrir:
+
+```text
+target/site/jacoco/index.html
+```
+
+2. Selecionar:
+
+```text
+Open in Browser
+```
+
+---
+
+# Cobertura Obtida
+
+Cobertura total do projeto:
+
+```text
+85%
+```
+
+Atendendo ao requisito mínimo de:
+
+```text
+80%
+```
+
+---
+
+# Estrutura dos Testes
+
+Os testes seguem o padrão:
+
+```java
+// Arrange (Preparação)
+// Act (Ação)
+// Assert (Verificação)
+```
+
+Exemplo:
+
+```java
+@Test
+public void deveRealizarDeposito() {
+
+    // Arrange
+    Conta conta = new Conta(1L, "Luciane", 1000.0);
+
+    // Act
+    contaService.depositar(1L, 500.0);
+
+    // Assert
+    assertEquals(1500.0, conta.getSaldo());
+}
+```
+
 # Autor
 
 Luciane Silva de Lima
