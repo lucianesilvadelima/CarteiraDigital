@@ -391,6 +391,12 @@ public void deveRealizarDeposito() {
 }
 ```
 
+## Endpoints Disponíveis
+HTTP
+GET /contas/{id}/saldo
+POST /contas/{id}/deposito?valor=100
+POST /contas/transferencia?idOrigem=1&idDestino=2&valor=100
+
 # Autor
 
 Luciane Silva de Lima
